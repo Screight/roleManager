@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.rolemanager.databinding.ActivityLoginBinding
-import com.example.rolemanager.databinding.ActivityMainBinding
+import com.example.rolemanager.list.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
