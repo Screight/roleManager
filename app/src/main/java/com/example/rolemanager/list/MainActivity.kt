@@ -2,6 +2,7 @@ package com.example.rolemanager.list
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rolemanager.campaigns.ListRecyclerViewAdapter
 import com.example.rolemanager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
