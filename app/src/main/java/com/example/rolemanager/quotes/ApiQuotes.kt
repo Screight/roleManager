@@ -1,4 +1,4 @@
-package com.example.rolemanager
+package com.example.rolemanager.quotes
 import retrofit2.http.GET
 import retrofit2.Call
 

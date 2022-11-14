@@ -1,4 +1,4 @@
-package com.example.rolemanager
+package com.example.rolemanager.quotes
 
 import com.google.gson.annotations.SerializedName
 

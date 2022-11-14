@@ -1,4 +1,4 @@
-package com.example.rolemanager
+package com.example.rolemanager.quotes
 
 import android.os.Bundle
 import android.widget.Toast
