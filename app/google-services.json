@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1062134445638",
+    "project_id": "rolemanager-ab934",
+    "storage_bucket": "rolemanager-ab934.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062134445638:android:a68f17b90ae733d5e67c47",
+        "android_client_info": {
+          "package_name": "com.example.rolemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062134445638-stg8bs8lfun55k10un5sefp342ejakvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3XDUDAXSw42TbCSgEa-yvPXu8khM0UFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062134445638-stg8bs8lfun55k10un5sefp342ejakvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
