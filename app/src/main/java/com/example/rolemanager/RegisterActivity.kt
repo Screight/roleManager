@@ -18,21 +18,20 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val actionBar = supportActionBar
+
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.title = resources.getString(R.string.register_form_title)
+
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.loginButton.setOnClickListener{
-            val username = binding.userInput.text.toString()
-            val password = binding.passwordInput.text.toString()
+    }
 
-            firebaseAuth = FirebaseAuth.getInstance()
-            firebaseAuth.signInWithEmailAndPassword(username, password).addOnSuccessListener{
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-            }.addOnFailureListener{
-                Toast.makeText(this, "Incorrect user or password.", Toast.LENGTH_SHORT).show()
-            }
-        }
+    fun goToLoginActivity(){
+        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        startActivity(intent)
 
+        finish()
     }
 }

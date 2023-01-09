@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">roleManager</string>
+
+    <string name="register_form_name">Name</string>
+    <string name="register_form_email">Email</string>
+    <string name="register_form_password">Password</string>
+    <string name="register_form_repeat_password">Repeat password</string>
+    <string name="register_form_required">Required</string>
+    <string name="register_form_register_button">Register</string>
+    <string name="register_form_title">Register form</string>
+
+    <string name="login_activity_loginButton">Login</string>
+    <string name="login_activity_registerButton">Register</string>
     <string name="login_user_hint">User</string>
     <string name="login_password_hint">Password</string>
+
 </resources>

@@ -23,18 +23,52 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.loginButton.setOnClickListener{
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        if (firebaseAuth.currentUser != null) {
+            Toast.makeText(
+                this,
+                "Logged in as ${firebaseAuth.currentUser?.email}",
+                Toast.LENGTH_SHORT
+            ).show()
+            login()
+        }
+
+        binding.loginButton.setOnClickListener {
             val username = binding.userInput.text.toString()
             val password = binding.passwordInput.text.toString()
 
-            firebaseAuth = FirebaseAuth.getInstance()
-            firebaseAuth.signInWithEmailAndPassword(username, password).addOnSuccessListener{
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-            }.addOnFailureListener{
-                Toast.makeText(this, "Incorrect user or password.", Toast.LENGTH_SHORT).show()
-            }
+            firebaseAuth.signInWithEmailAndPassword(username, password)
+                .addOnSuccessListener {
+                    login()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT)
+                        .show()
+                }
         }
 
+        binding.registerButton.setOnClickListener {
+            goToRegisterActivity()
+        }
+
+    }
+
+    private fun login() {
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+        startActivity(intent)
+
+        finish()
+    }
+
+    private fun goToRegisterActivity(){
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+        startActivity(intent)
+
+        finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        firebaseAuth.signOut()
     }
 }
