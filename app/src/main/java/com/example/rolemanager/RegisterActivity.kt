@@ -1,14 +1,20 @@
 package com.example.rolemanager
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import com.example.rolemanager.campaigns.HomeActivity
 import com.example.rolemanager.databinding.ActivityLoginBinding
 import com.example.rolemanager.databinding.ActivityRegisterBinding
 import com.example.rolemanager.list.MainActivity
 import com.google.firebase.auth.FirebaseAuth
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,12 +32,123 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.textNameField.doOnTextChanged { name, start, before, count ->
+            checkName(name.toString())
+        }
+
+        binding.textEmailField.doOnTextChanged{emailInput, start, before, count ->
+            checkEmailAdress(emailInput.toString())
+        }
+
+        binding.textPasswordField.doOnTextChanged{password, start, before, count ->
+
+            checkIfPasswordsMatch()
+        }
+
+        binding.textRepeatPasswordField.doOnTextChanged{confirmPassword, start, before, count ->
+            checkIfPasswordsMatch()
+        }
+
+        binding.registerButton.setOnClickListener{
+            var isValid = true
+
+            isValid = checkName(binding.textNameField.text.toString())
+
+            if(isValid)
+                isValid = checkPasswordPattern(binding.textPasswordField.text.toString())
+            if(isValid)
+                isValid = checkIfPasswordsMatch()
+            if(isValid)
+                isValid = checkEmailAdress(binding.textEmailField.text.toString())
+
+            if(isValid)
+                firebaseAuth.
+        }
     }
 
-    fun goToLoginActivity(){
-        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-        startActivity(intent)
+    private fun checkName(name : String) : Boolean{
+        var minNumberOfChar = resources.getInteger(R.integer.register_form_min_number_name_char)
+        var maxNumberOfChar = resources.getInteger(R.integer.register_form_max_number_name_char)
 
-        finish()
+        val numberOfChars = name?.length ?: 0
+
+        if(numberOfChars < minNumberOfChar){
+            var message = getString(R.string.register_form_name_min_chars)
+            message = message.replace("{i}", minNumberOfChar.toString())
+            binding.textNameInputLayout.error = message
+            return false
+        }else if(numberOfChars > maxNumberOfChar){
+            var message = getString(R.string.register_form_name_max_chars)
+            message = message.replace("{i}", maxNumberOfChar.toString())
+            binding.textNameInputLayout.error = message
+            return false
+        }
+        else{
+            binding.textNameInputLayout.error = null
+            binding.textNameInputLayout.helperText = getString(R.string.register_form_valid)
+            return true
+        }
     }
+
+    private fun checkPasswordPattern(password : String) : Boolean{
+        var pattern : Pattern
+        var matcher : Matcher
+
+        var isValid = true
+
+        // Check for letters
+        pattern = Pattern.compile("[a-zA-Z]")
+        matcher = pattern.matcher(password)
+        if(!matcher.find()){
+            binding.textPasswordInputLayout.error = getString(R.string.register_form_password_letter)
+            isValid = false
+        }
+
+        if(isValid){
+            // Check for numbers
+            pattern = Pattern.compile("[0-9]")
+            matcher = pattern.matcher(password)
+            if(!matcher.find()){
+                binding.textPasswordInputLayout.error = getString(R.string.register_form_password_number)
+                isValid = false
+            }
+        }
+        5
+        if(!isValid && password?.length == 0)
+            binding.textPasswordInputLayout.helperText = getString(R.string.register_form_required)
+
+        if(isValid){
+            binding.textPasswordInputLayout.error = null
+            binding.textPasswordInputLayout.helperText = getString(R.string.register_form_valid)
+        }
+
+        return isValid
+    }
+
+    private fun checkIfPasswordsMatch() : Boolean{
+        if(binding.textPasswordField.text.toString()?.equals(binding.textRepeatPasswordField.text.toString())){
+            binding.textRepeatPasswordInputLayout.error = null
+            binding.textRepeatPasswordInputLayout.helperText = getString(R.string.register_form_valid)
+            return true
+        }
+        else
+            binding.textRepeatPasswordInputLayout.error = getString(R.string.register_form_password_unmatch)
+        return false
+    }
+
+    private fun checkEmailAdress(emailInput : String) : Boolean{
+        if(!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
+            binding.textEmailInputLayout.error = getString(R.string.register_form_email_invalid)
+            return false
+        }
+        else{
+            binding.textEmailInputLayout.error = null
+            return true
+        }
+    }
+
+    private fun register(){
+
+    }
+
 }

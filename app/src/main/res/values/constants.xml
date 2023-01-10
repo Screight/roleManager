@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="register_form_max_number_name_char">20</integer>
+    <integer name="register_form_min_number_name_char">4</integer>
+    <integer name="register_form_max_number_password_char">20</integer>
+    <integer name="register_form_min_number_password_char">6</integer>
+
+</resources>

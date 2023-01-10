@@ -8,6 +8,19 @@
     <string name="register_form_required">Required</string>
     <string name="register_form_register_button">Register</string>
     <string name="register_form_title">Register form</string>
+    <string name="register_form_name_min_chars">Name cannot have less than {i} characters</string>
+    <string name="register_form_name_max_chars">Name cannot have more than {i} characters</string>
+    <string name="register_form_email_invalid">Invalid email address</string>
+    <string name="register_form_valid">Valid</string>
+    <string name="register_form_password_letter">At least a letter is needed</string>
+    <string name="register_form_password_number">At least a number is needed</string>
+    <string name="register_form_password_special">At least a special character is needed</string>
+    <string name="register_form_password_max_chars">Password cannot have more than {i} characters</string>
+    <string name="register_form_password_min_chars">Password cannot have less than {i} characters</string>
+    <string name="register_form_password_unmatch">Passwords do not match</string>
+
+
+
 
     <string name="login_activity_loginButton">Login</string>
     <string name="login_activity_registerButton">Register</string>

@@ -19,14 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:helperText="@string/register_form_required"
-        app:helperTextTextColor="@color/purple_700"
+        app:helperTextTextColor="@color/form_default_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/ic_baseline_person_24">
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:counterEnabled="true"
+        app:counterMaxLength="@integer/register_form_max_number_name_char"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_baseline_error_24"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textNameField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="@integer/register_form_max_number_name_char"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,15 +51,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textNameInputLayout"
         app:helperText="@string/register_form_required"
-        app:helperTextTextColor="@color/purple_700"
+        app:helperTextTextColor="@color/form_default_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_baseline_error_24"
         app:startIconDrawable="@drawable/ic_baseline_email_24"
+        app:endIconMode="clear_text"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textEmailField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,15 +81,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textEmailInputLayout"
         app:helperText="@string/register_form_required"
-        app:helperTextTextColor="@color/purple_700"
+        app:helperTextTextColor="@color/form_default_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:startIconDrawable="@drawable/ic_password_24"
+        app:endIconMode="password_toggle"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textPasswordField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,15 +109,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textPasswordInputLayout"
         app:helperText="@string/register_form_required"
-        app:helperTextTextColor="@color/purple_700"
+        app:helperTextTextColor="@color/form_default_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:startIconDrawable="@drawable/ic_password_24"
+        app:endIconMode="password_toggle"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textRepeatPasswordField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
