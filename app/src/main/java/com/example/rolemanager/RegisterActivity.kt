@@ -24,6 +24,8 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         val actionBar = supportActionBar
 
         actionBar?.setDisplayHomeAsUpEnabled(true)
@@ -62,7 +64,7 @@ class RegisterActivity : AppCompatActivity() {
                 isValid = checkEmailAdress(binding.textEmailField.text.toString())
 
             if(isValid)
-                firebaseAuth.
+                register(binding.textEmailField.text.toString(), binding.textPasswordField.text.toString())
         }
     }
 
@@ -147,8 +149,19 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun register(){
-
+    private fun register(email : String, password : String){
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+            if(it.isSuccessful)
+                goToLogin()
+            else
+                binding.textEmailInputLayout.error = getString(R.string.register_form_email_used)
+        }
     }
 
+    private fun goToLogin() {
+        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        startActivity(intent)
+
+        finish()
+    }
 }

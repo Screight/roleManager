@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,8 +30,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/topNav"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="30dp"
         android:background="#254297"
         app:itemIconTint="@color/white"
         app:itemTextColor="#FFFFFF"
@@ -45,10 +45,11 @@
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="0dp"
-        android:layout_height="578dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topNav">
 
     </FrameLayout>
 

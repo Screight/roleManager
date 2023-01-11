@@ -18,6 +18,7 @@
     <string name="register_form_password_max_chars">Password cannot have more than {i} characters</string>
     <string name="register_form_password_min_chars">Password cannot have less than {i} characters</string>
     <string name="register_form_password_unmatch">Passwords do not match</string>
+    <string name="register_form_email_used">Email is already used</string>
 
 
 
