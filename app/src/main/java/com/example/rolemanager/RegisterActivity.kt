@@ -13,6 +13,7 @@ import com.example.rolemanager.databinding.ActivityLoginBinding
 import com.example.rolemanager.databinding.ActivityRegisterBinding
 import com.example.rolemanager.list.MainActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -151,8 +152,20 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register(email : String, password : String){
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
-            if(it.isSuccessful)
-                goToLogin()
+            if(it.isSuccessful){
+                val db = FirebaseFirestore.getInstance()
+
+                val name = binding.textNameField.text.toString()
+                val email = binding.textEmailField.text.toString()
+
+                db.collection("users").document(firebaseAuth.currentUser?.uid.toString()).set(
+                    hashMapOf(  "name" to name,
+                                "email" to email
+                    )
+                ).addOnSuccessListener {
+                    goToLogin()
+                }
+            }
             else
                 binding.textEmailInputLayout.error = getString(R.string.register_form_email_used)
         }
