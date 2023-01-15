@@ -1,17 +1,11 @@
 package com.example.rolemanager
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
-import com.example.rolemanager.campaigns.HomeActivity
-import com.example.rolemanager.databinding.ActivityLoginBinding
 import com.example.rolemanager.databinding.ActivityRegisterBinding
-import com.example.rolemanager.list.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.regex.Matcher
@@ -88,7 +82,7 @@ class RegisterActivity : AppCompatActivity() {
         }
         else{
             binding.textNameInputLayout.error = null
-            binding.textNameInputLayout.helperText = getString(R.string.register_form_valid)
+            binding.textNameInputLayout.helperText = getString(R.string.form_default_valid)
             return true
         }
     }
@@ -122,7 +116,7 @@ class RegisterActivity : AppCompatActivity() {
 
         if(isValid){
             binding.textPasswordInputLayout.error = null
-            binding.textPasswordInputLayout.helperText = getString(R.string.register_form_valid)
+            binding.textPasswordInputLayout.helperText = getString(R.string.form_default_valid)
         }
 
         return isValid
@@ -131,7 +125,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun checkIfPasswordsMatch() : Boolean{
         if(binding.textPasswordField.text.toString()?.equals(binding.textRepeatPasswordField.text.toString())){
             binding.textRepeatPasswordInputLayout.error = null
-            binding.textRepeatPasswordInputLayout.helperText = getString(R.string.register_form_valid)
+            binding.textRepeatPasswordInputLayout.helperText = getString(R.string.form_default_valid)
             return true
         }
         else

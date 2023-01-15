@@ -5,4 +5,10 @@
     <integer name="register_form_max_number_password_char">20</integer>
     <integer name="register_form_min_number_password_char">6</integer>
 
+    <integer name="create_campaign_form_max_number_char_background_field">8</integer>
+    <integer name="create_campaign_form_min_number_name_field">4</integer>
+    <integer name="create_campaign_form_max_number_name_field">20</integer>
+    <integer name="create_campaign_form_min_number_description_field">4</integer>
+    <integer name="create_campaign_form_max_number_description_field">256</integer>
+
 </resources>

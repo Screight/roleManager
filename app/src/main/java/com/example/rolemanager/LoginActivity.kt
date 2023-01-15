@@ -11,9 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
-    val CORRECT_USERNAME = "Screight"
-    val CORRECT_PASSWORD = "123456"
-
     lateinit var binding: ActivityLoginBinding
     lateinit var firebaseAuth: FirebaseAuth
 

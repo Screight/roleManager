@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.rolemanager.databinding.FragmentCampaignsBinding
+import com.google.firebase.ktx.Firebase
 
 class CampaignSelectionFragment : Fragment() {
 

@@ -27,6 +27,8 @@ allprojects {
 
         mavenCentral()  // Maven Central repository
 
+        // Color Picker
+        mavenCentral()
     }
 }
 

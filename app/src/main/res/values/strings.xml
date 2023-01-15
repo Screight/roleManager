@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">roleManager</string>
 
+    <string name="form_default_valid">Valid</string>
+
     <string name="register_form_name">Name</string>
     <string name="register_form_email">Email</string>
     <string name="register_form_password">Password</string>
@@ -11,7 +13,6 @@
     <string name="register_form_name_min_chars">Name cannot have less than {i} characters</string>
     <string name="register_form_name_max_chars">Name cannot have more than {i} characters</string>
     <string name="register_form_email_invalid">Invalid email address</string>
-    <string name="register_form_valid">Valid</string>
     <string name="register_form_password_letter">At least a letter is needed</string>
     <string name="register_form_password_number">At least a number is needed</string>
     <string name="register_form_password_special">At least a special character is needed</string>
@@ -21,11 +22,23 @@
     <string name="register_form_email_used">Email is already used</string>
 
 
-
-
     <string name="login_activity_loginButton">Login</string>
     <string name="login_activity_registerButton">Register</string>
     <string name="login_user_hint">User</string>
     <string name="login_password_hint">Password</string>
+
+    <string name="create_campaign_title">New Campaign</string>
+    <string name="create_campaign_form_name_title">Name</string>
+    <string name="create_campaign_form_description_title">Description</string>
+    <string name="create_campaign_form_icon_background_title">Icon background color</string>
+    <string name="create_campaign_create_button">Create campaign</string>
+    <string name="create_campaign_select_image_button">Select image</string>
+    <string name="default_input_field_background_color">FFFFFFFF</string>
+    <string name="create_campaign_min_chars_error">Cannot have less than {i} characters</string>
+    <string name="create_campaign_empty_error">Cannot be empty</string>
+
+    <string name="color_picker_dialog_title">Select color</string>
+    <string name="color_picker_dialog_confirm_button">Confirm</string>
+    <string name="color_picker_dialog_cancel_button">Cancel</string>
 
 </resources>
