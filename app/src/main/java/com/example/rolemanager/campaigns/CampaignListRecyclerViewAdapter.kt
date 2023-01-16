@@ -1,16 +1,21 @@
 package com.example.rolemanager.campaigns
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolemanager.databinding.ListCampaignsBinding
 
-class ListRecyclerViewAdapter(private val listItem: List<String>) : RecyclerView.Adapter<ListRecyclerViewAdapter.ListVH>() {
+import com.mikhaellopez.circularimageview.CircularImageView
+
+
+class CampaignListRecyclerViewAdapter(private val listItem: List<CampaignData>) : RecyclerView.Adapter<CampaignListRecyclerViewAdapter.ListVH>() {
 
     inner class ListVH(binding: ListCampaignsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val name = binding.listCampaignTitle
-        val image = binding.listCampaignImage
+        val image = binding.listCampaignIcon
+        val players = binding.listCampaignPlayers
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListVH {
@@ -21,7 +26,19 @@ class ListRecyclerViewAdapter(private val listItem: List<String>) : RecyclerView
 
     override fun onBindViewHolder(holder: ListVH, position: Int) {
         val item = listItem[position]
-        holder.name.text = item
+        holder.name.text = item.name
+        holder.players.text = "Provisional"
+
+        val color : Int = try{
+            Color.parseColor("#${item.backgroundColorHex}")
+        } catch ( e : IllegalArgumentException){
+            1
+        }
+
+        holder.image.apply {
+            circleColor = color
+        }
+
     }
 
     override fun getItemCount(): Int {

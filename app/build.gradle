@@ -52,6 +52,12 @@ dependencies {
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:31.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx' // Google authentification system
+    implementation 'com.google.firebase:firebase-firestore-ktx' // Google database
 
+    //Circular ViewImage
+    implementation 'com.mikhaellopez:circularimageview:4.3.1'
+
+    //Color Picker
+    implementation "com.github.skydoves:colorpickerview:2.2.4"
 }

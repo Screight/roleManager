@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="HomeMenuButton" parent="TextAppearance.AppCompat">
+    <style name="HomeMenuButton" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:background">#FFFFFF</item>
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="colorControlNormal">@color/toolbar</item>
+    </style>
+
+    <style name="Theme.App" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorError">@color/white</item>
+    </style>
+
 </resources>

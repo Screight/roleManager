@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".campaigns.CreateCampaignActivity"
+    android:background="@color/default_background"
+    >
+
+    <include
+        android:id="@+id/toolbar_1"
+        layout="@layout/default_toolbar"
+        />
+
+    <TextView
+        android:id="@+id/form_name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_campaign_form_name_title"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/form_name_input_layout"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_name_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/form_name_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/default_input_field_background"
+
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        app:counterEnabled="true"
+        app:counterTextColor="@color/default_font_color"
+        app:counterMaxLength="@integer/create_campaign_form_max_number_name_field"
+        app:helperTextTextColor="@color/default_font_color"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/form_name_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLines="1"
+            android:maxLength="20"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/form_description_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+
+        android:text="@string/create_campaign_form_description_title"
+
+        app:layout_constraintBottom_toTopOf="@id/form_description_input_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_name_input_layout"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_description_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/form_description_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/campaign_icon"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/default_input_field_background"
+
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        app:counterEnabled="true"
+        app:counterTextColor="@color/default_font_color"
+        app:counterMaxLength="@integer/create_campaign_form_max_number_description_field"
+        app:helperTextTextColor="@color/default_font_color"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/form_description_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:lines="5"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/campaign_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/campaign_moria"
+        app:civ_border_color="@color/circle_image_view_border_color"
+        app:civ_border_width="2dp"
+        app:civ_shadow="false"
+        app:civ_circle_color="@color/default_input_field_background"
+
+        app:layout_constraintBottom_toTopOf="@id/form_select_image_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_description_input_layout"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/form_select_image_button"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/default_button_background_color"
+        android:text="@string/create_campaign_select_image_button"
+        android:textColor="@color/default_font_color"
+        android:textSize="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/campaign_icon"
+        app:layout_constraintBottom_toTopOf="@+id/form_icon_background_color_title"
+
+        />
+
+    <TextView
+        android:id="@+id/form_icon_background_color_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_campaign_form_icon_background_title"
+        app:layout_constraintTop_toBottomOf="@id/form_select_image_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/form_icon_background_color_layout"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/campaign_background_color"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/form_icon_background_color_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/form_submit_button"
+        app:layout_constraintRight_toLeftOf="@id/form_icon_background_color_layout"
+        android:background="@drawable/background_circle"
+        android:backgroundTintMode="multiply"
+        android:backgroundTint="@color/default_input_field_background"
+        android:layout_marginLeft="20dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/form_icon_background_color_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:boxBackgroundColor="@color/default_input_field_background"
+        app:layout_constraintBottom_toTopOf="@id/form_submit_button"
+        app:layout_constraintLeft_toRightOf="@id/campaign_background_color"
+        app:layout_constraintTop_toBottomOf="@id/form_icon_background_color_title"
+        app:helperTextTextColor="@color/default_font_color"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/form_icon_background_color_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:minWidth="120dp"
+
+            android:text="@string/default_input_field_background_color"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="textCapCharacters"
+            android:maxLength="@integer/create_campaign_form_max_number_char_background_field"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/form_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_campaign_create_button"
+        app:layout_constraintTop_toBottomOf="@id/form_icon_background_color_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:backgroundTint="@color/default_button_background_color"
+        android:textColor="@color/default_font_color"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
