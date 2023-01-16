@@ -10,12 +10,6 @@ import com.example.rolemanager.databinding.ActivityHomeBinding
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
-    private val lista = listOf(
-        "Save the Shire",
-        "The Black Gate Opens",
-        "Battle of the Pelennor Fields"
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

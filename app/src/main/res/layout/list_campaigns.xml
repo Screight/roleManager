@@ -30,12 +30,12 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/list_campaign_image"
-        app:layout_constraintEnd_toStartOf="@+id/options"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/list_campaign_image"
-        app:layout_constraintTop_toTopOf="@+id/list_campaign_image"
-        app:layout_constraintVertical_bias="0.0" />
+
+        app:layout_constraintLeft_toRightOf="@id/list_campaign_icon"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+
+        android:layout_marginTop="5dp"
+        />
 
     <TextView
         android:id="@+id/list_campaign_players"
@@ -48,16 +48,22 @@
         app:layout_constraintTop_toBottomOf="@+id/list_campaign_title"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/list_campaign_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/list_campaign_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/campaign_moria"
+        app:civ_border_color="@color/circle_image_view_border_color"
+        app:civ_border_width="2dp"
+        app:civ_shadow="false"
+        app:civ_circle_color="@color/default_input_field_background"
+
+        app:layout_constraintBottom_toBottomOf="@id/view2"
+        app:layout_constraintTop_toTopOf="@id/view2"
+        app:layout_constraintLeft_toLeftOf="@id/view2"
+
+        android:layout_marginLeft="10dp"
+        />
 
     <ImageButton
         android:id="@+id/options"

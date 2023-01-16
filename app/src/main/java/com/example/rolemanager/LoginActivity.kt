@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.rolemanager.campaigns.HomeActivity
 import com.example.rolemanager.databinding.ActivityLoginBinding
-import com.example.rolemanager.list.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {

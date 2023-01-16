@@ -1,4 +1,4 @@
-package com.example.rolemanager
+package com.example.rolemanager.campaigns
 
 import android.app.Dialog
 import android.content.Intent
@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.doOnTextChanged
+import com.example.rolemanager.R
 import com.example.rolemanager.databinding.ActivityCreateCampaignBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -150,7 +151,9 @@ class CreateCampaignActivity : AppCompatActivity() {
             isValid = false
         }
         else if(name.length < resources.getInteger(R.integer.create_campaign_form_min_number_name_field)){
-            binding.formNameInputLayout.error = getString(R.string.create_campaign_min_chars_error).replace("{i}", resources.getInteger(R.integer.create_campaign_form_min_number_name_field).toString())
+            binding.formNameInputLayout.error = getString(R.string.create_campaign_min_chars_error).replace("{i}", resources.getInteger(
+                R.integer.create_campaign_form_min_number_name_field
+            ).toString())
             isValid = false
         }else{
             binding.formNameInputLayout.error = null
@@ -169,7 +172,9 @@ class CreateCampaignActivity : AppCompatActivity() {
             isValid = false
         }
         else if(description.length < resources.getInteger(R.integer.create_campaign_form_min_number_name_field)){
-            binding.formDescriptionInputLayout.error = getString(R.string.create_campaign_min_chars_error).replace("{i}", resources.getInteger(R.integer.create_campaign_form_min_number_description_field).toString())
+            binding.formDescriptionInputLayout.error = getString(R.string.create_campaign_min_chars_error).replace("{i}", resources.getInteger(
+                R.integer.create_campaign_form_min_number_description_field
+            ).toString())
             isValid = false
         }else{
             binding.formDescriptionInputLayout.error = null
