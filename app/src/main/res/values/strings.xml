@@ -41,4 +41,12 @@
     <string name="color_picker_dialog_confirm_button">Confirm</string>
     <string name="color_picker_dialog_cancel_button">Cancel</string>
 
+    <string name="campaign_overview_stats_title">Stats</string>
+    <string name="campaign_overview_skills_title">Skills</string>
+    <string name="campaign_overview_skills_table_modifier_title">Modifier</string>
+    <string name="campaign_overview_skills_table_bonus_title">Bonus</string>
+
+    <string name="testing_text_very_short">Lorem</string>
+    <string name="testing_text_short">Lorem ipsum</string>
+
 </resources>

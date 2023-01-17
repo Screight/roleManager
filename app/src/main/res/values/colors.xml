@@ -17,6 +17,11 @@
     <color name="default_font_color">#FFFFFF</color>
     <color name="circle_image_view_border_color">#FFFFFF</color>
 
+    <color name="bottom_navigation_bar_color">#7A86B6</color>
+
+    <color name="default_title_color">#389BE1</color>
+
+
 
 
 </resources>

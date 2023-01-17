@@ -4,14 +4,14 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rolemanager.databinding.ListCampaignsBinding
+import com.example.rolemanager.databinding.ItemListCampaignsBinding
 
 import com.mikhaellopez.circularimageview.CircularImageView
 
 
 class CampaignListRecyclerViewAdapter(private val listItem: List<CampaignData>) : RecyclerView.Adapter<CampaignListRecyclerViewAdapter.ListVH>() {
 
-    inner class ListVH(binding: ListCampaignsBinding) :
+    inner class ListVH(binding: ItemListCampaignsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val name = binding.listCampaignTitle
         val image = binding.listCampaignIcon
@@ -20,7 +20,7 @@ class CampaignListRecyclerViewAdapter(private val listItem: List<CampaignData>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListVH {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ListCampaignsBinding.inflate(layoutInflater, parent, false)
+        val binding = ItemListCampaignsBinding.inflate(layoutInflater, parent, false)
         return ListVH(binding)
     }
 

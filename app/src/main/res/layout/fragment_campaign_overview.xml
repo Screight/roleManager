@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CampaignOverviewFragment"
+
+    android:background="@color/default_background"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    >
+
+    <TextView
+        android:id="@+id/campaign_overview_stats_title"
+        android:text="@string/campaign_overview_stats_title"
+        android:textColor="@color/default_title_color"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/campaign_overview_grid_stats_layout"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/campaign_overview_grid_stats_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white"
+
+        app:layout_constraintTop_toBottomOf="@id/campaign_overview_stats_title"
+        app:layout_constraintStart_toStartOf="@id/campaign_overview_stats_title"
+        app:layout_constraintBottom_toTopOf="@id/campaign_overview_skills_title"
+
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/campaign_overview_skills_title"
+        android:text="@string/campaign_overview_skills_title"
+        android:textColor="@color/default_title_color"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/campaign_overview_grid_stats_layout"
+        app:layout_constraintStart_toStartOf="@id/campaign_overview_stats_title"
+
+        android:layout_marginTop="20dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/skill_table_header_linear_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/campaign_overview_skills_title"
+        app:layout_constraintStart_toStartOf="@id/campaign_overview_stats_title"
+        >
+
+        <TextView
+            android:id="@+id/campaign_overview_skills_table_skill_title"
+            android:text="@string/campaign_overview_skills_title"
+            android:textColor="@color/default_font_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:id="@+id/campaign_overview_skills_table_modifier_title"
+            android:text="@string/campaign_overview_skills_table_modifier_title"
+            android:textColor="@color/default_font_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:id="@+id/campaign_overview_skills_table_bonus_title"
+            android:text="@string/campaign_overview_skills_table_bonus_title"
+            android:textColor="@color/default_font_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/campaign_overview_skills_list"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/black"
+
+        app:layout_constraintTop_toBottomOf="@id/skill_table_header_linear_layout"
+        app:layout_constraintStart_toStartOf="@id/campaign_overview_stats_title"
+
+        android:layout_marginTop="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

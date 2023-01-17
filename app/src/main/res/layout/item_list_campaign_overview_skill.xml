@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/black"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:gravity="center_vertical"
+
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        >
+
+        <TextView
+            android:id="@+id/skill_item_list_name"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+
+            android:textColor="@color/default_font_color"
+            android:text="@string/testing_text_short"
+            />
+
+        <TextView
+            android:id="@+id/skill_item_list_modifier"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/default_font_color"
+            android:text="@string/testing_text_short"
+            />
+        <TextView
+            android:id="@+id/skill_item_list_bonus"
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/default_font_color"
+            android:text="@string/testing_text_very_short"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+
+            android:src="@drawable/ic_option_points"
+
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
