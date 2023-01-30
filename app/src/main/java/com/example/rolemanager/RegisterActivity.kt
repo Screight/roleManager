@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import androidx.core.widget.doOnTextChanged
 import com.example.rolemanager.databinding.ActivityRegisterBinding
+import com.example.rolemanager.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.regex.Matcher
@@ -29,20 +30,19 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textNameField.doOnTextChanged { name, start, before, count ->
+        binding.textNameField.doOnTextChanged { name, _, _, _ ->
             checkName(name.toString())
         }
 
-        binding.textEmailField.doOnTextChanged{emailInput, start, before, count ->
+        binding.textEmailField.doOnTextChanged{emailInput, _, _, _ ->
             checkEmailAdress(emailInput.toString())
         }
 
-        binding.textPasswordField.doOnTextChanged{password, start, before, count ->
-
+        binding.textPasswordField.doOnTextChanged{_, _, _, _ ->
             checkIfPasswordsMatch()
         }
 
-        binding.textRepeatPasswordField.doOnTextChanged{confirmPassword, start, before, count ->
+        binding.textRepeatPasswordField.doOnTextChanged{_, _, _, _ ->
             checkIfPasswordsMatch()
         }
 
