@@ -20,6 +20,10 @@
         <entry key="..\:/Users/MatiasEzequielSeguer/AndroidStudioProjects/roleManager/app/src/main/res/layout/list_campaigns.xml" value="0.33" />
         <entry key="..\:/Users/MatiasEzequielSeguer/AndroidStudioProjects/roleManager/app/src/main/res/menu/menu_bottom_bar.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/MatiasEzequielSeguer/AndroidStudioProjects/roleManager/app/src/main/res/menu/menu_home.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/MatiasEzequielSeguer/roleManager/app/src/main/res/layout/activity_create_campaign.xml" value="0.5266757865937073" />
+        <entry key="..\:/Users/MatiasEzequielSeguer/roleManager/app/src/main/res/layout/activity_drag_and_drop.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/MatiasEzequielSeguer/roleManager/app/src/main/res/layout/activity_dragging_game.xml" value="0.33" />
+        <entry key="..\:/Users/MatiasEzequielSeguer/roleManager/app/src/main/res/layout/activity_permision_class.xml" value="0.33" />
       </map>
     </option>
   </component>

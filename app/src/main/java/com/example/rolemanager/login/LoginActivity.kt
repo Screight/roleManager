@@ -1,9 +1,11 @@
-package com.example.rolemanager
+package com.example.rolemanager.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
+import com.example.rolemanager.RegisterActivity
 import com.example.rolemanager.campaigns.HomeActivity
 import com.example.rolemanager.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -11,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
-    lateinit var firebaseAuth: FirebaseAuth
+    private val loginViewModel by viewModels<LoginViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,28 +21,27 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        firebaseAuth = FirebaseAuth.getInstance()
+        loginViewModel.isLoggedIn.observe(this) {
 
-        if (firebaseAuth.currentUser != null) {
-            Toast.makeText(
-                this,
-                "Logged in as ${firebaseAuth.currentUser?.email}",
-                Toast.LENGTH_SHORT
-            ).show()
-            login()
+            if(it == true){
+                Toast.makeText(
+                    this,
+                    "Logged in as "+ loginViewModel.getEmail(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                goToHomeActivity()
+            }
+            else{
+                Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
 
         binding.loginButton.setOnClickListener {
-            val username = binding.userInput.text.toString()
+            val email = binding.userInput.text.toString()
             val password = binding.passwordInput.text.toString()
 
-            firebaseAuth.signInWithEmailAndPassword(username, password)
-                .addOnSuccessListener {
-                    login()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT)
-                        .show()
-                }
+            loginViewModel.loginWithEmail(email, password)
         }
 
         binding.registerButton.setOnClickListener {
@@ -49,10 +50,9 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun login() {
+    private fun goToHomeActivity() {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
-
         finish()
     }
 
@@ -65,6 +65,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        firebaseAuth.signOut()
+        loginViewModel.signOut()
     }
 }
