@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.rolemanager.databinding.ActivityCampaignBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class CampaignActivity : AppCompatActivity() {
 

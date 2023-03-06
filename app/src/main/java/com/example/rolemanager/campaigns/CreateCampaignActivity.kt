@@ -17,7 +17,9 @@ import androidx.core.widget.doOnTextChanged
 import com.example.rolemanager.R
 import com.example.rolemanager.databinding.ActivityCreateCampaignBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.skydoves.colorpickerview.ColorPickerView
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
@@ -96,9 +98,7 @@ class CreateCampaignActivity : AppCompatActivity() {
         }
 
         // Set custom toolbar
-        val toolbar : Toolbar = findViewById(R.id.toolbar)
-        toolbar.title = getString(R.string.create_campaign_title)
-        setSupportActionBar(toolbar)
+        binding.toolbar1.title.text = getString(R.string.create_campaign_title)
 
         // Check fields
         binding.formNameInputField.doOnTextChanged{nameInput, _, _, _ ->
@@ -111,8 +111,10 @@ class CreateCampaignActivity : AppCompatActivity() {
         binding.formIconBackgroundColorInputField.setText(getString(R.string.default_input_field_background_color))
 
         binding.formSubmitButton.setOnClickListener {
-            if(checkInputFields())
+            if(checkInputFields()){
                 createNewDataBaseEntry()
+                finish()
+            }
         }
     }
 
@@ -213,7 +215,8 @@ class CreateCampaignActivity : AppCompatActivity() {
             )
         ).addOnSuccessListener {
             Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show()
+        }.addOnCanceledListener {
+            Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
         }
     }
-
 }

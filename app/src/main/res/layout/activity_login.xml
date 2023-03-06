@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    tools:context=".login.LoginActivity"
+    android:background="@color/default_background"
+    >
 
     <Button
         android:id="@+id/loginButton"
@@ -13,7 +15,10 @@
         android:layout_marginTop="16dp"
         android:text="@string/login_activity_loginButton"
         app:layout_constraintEnd_toEndOf="@+id/passwordInputWrapper"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputWrapper" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputWrapper"
+        android:backgroundTint="@color/default_button_background_color"
+        android:textColor="@color/default_font_color"
+        />
 
     <Button
         android:id="@+id/registerButton"
@@ -23,7 +28,10 @@
         android:layout_marginEnd="16dp"
         android:text="@string/login_activity_registerButton"
         app:layout_constraintEnd_toStartOf="@+id/loginButton"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInputWrapper" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputWrapper"
+        android:backgroundTint="@color/default_button_background_color"
+        android:textColor="@color/default_font_color"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userInputWrapper"
@@ -39,7 +47,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.44"
         app:startIconContentDescription="@string/login_user_hint"
-        app:startIconDrawable="@drawable/ic_baseline_person_24">
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:boxBackgroundColor="@color/default_input_field_background"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userInput"
@@ -62,6 +72,7 @@
         app:startIconContentDescription="@string/login_password_hint"
         app:startIconDrawable="@drawable/ic_password_24"
         app:endIconMode="password_toggle"
+        app:boxBackgroundColor="@color/default_input_field_background"
         >
 
         <com.google.android.material.textfield.TextInputEditText

@@ -21,6 +21,30 @@
         <activity
             android:name=".PermissionActivity"
             android:exported="true" >
+        </activity>
+        <activity
+            android:name=".ColorPickerDialog"
+            android:exported="true"></activity>
+        <activity
+            android:name=".campaigns.CreateCampaignActivity"
+            android:exported="true">
+
+
+
+        </activity>
+        <activity
+            android:name=".campaigns.HomeActivity"
+            android:exported="true" >
+        </activity>>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,24 +53,11 @@
             </intent-filter>
 
         </activity>
-        <activity
-            android:name=".ColorPickerDialog"
-            android:exported="true"></activity>
-        <activity
-            android:name=".campaigns.CreateCampaignActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".campaigns.HomeActivity"
-            android:exported="true" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
-        <activity
-            android:name=".login.LoginActivity"
-            android:exported="true">
 
-        </activity>
+        <activity
+            android:name=".CampaignActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

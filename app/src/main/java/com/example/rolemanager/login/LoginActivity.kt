@@ -18,6 +18,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        /*(FirebaseAuth.getInstance().addAuthStateListener {
+            if(it.currentUser == null){
+                Toast.makeText(this, "Session expired", Toast.LENGTH_SHORT)
+                    .show()
+                goToLoginActivity()
+            }
+        }*/
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -50,6 +58,12 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    private fun goToLoginActivity(){
+        val intent = Intent(this@LoginActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun goToHomeActivity() {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
@@ -59,12 +73,5 @@ class LoginActivity : AppCompatActivity() {
     private fun goToRegisterActivity(){
         val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
         startActivity(intent)
-
-        finish()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        loginViewModel.signOut()
     }
 }

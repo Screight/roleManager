@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.MenuItem
 import androidx.core.widget.doOnTextChanged
 import com.example.rolemanager.databinding.ActivityRegisterBinding
 import com.example.rolemanager.login.LoginActivity
@@ -61,6 +62,11 @@ class RegisterActivity : AppCompatActivity() {
             if(isValid)
                 register(binding.textEmailField.text.toString(), binding.textPasswordField.text.toString())
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true;
     }
 
     private fun checkName(name : String) : Boolean{

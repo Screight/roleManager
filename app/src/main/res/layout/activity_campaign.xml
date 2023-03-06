@@ -46,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ui_party"
+            app:srcCompat="@drawable/ui_campaign_overview"
             android:padding="5dp"
             />
 
@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ui_race_class"
+            app:srcCompat="@drawable/ui_campaign_overview"
             android:padding="5dp"
             />
 

@@ -1,5 +1,6 @@
 package com.example.rolemanager.campaigns
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,12 +22,22 @@ class CampaignSelectionFragment : Fragment() {
 
         binding = FragmentCampaignsBinding.inflate(inflater)
 
+        val campaignList = ArrayList<CampaignData>()
+
+        binding.list.adapter = CampaignListRecyclerViewAdapter(campaignList)
+
+        binding.createCampaignButton.setOnClickListener { goToCreateCampaign()  }
+
+        return binding.root
+    }
+
+    private fun getListFromDatabase(){
         val auth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
 
         val campaignList = ArrayList<CampaignData>()
 
-        val test = db.collection("campaigns").whereEqualTo("ownedID", auth.uid.toString()).get().addOnSuccessListener{ documents ->
+        db.collection("campaigns").whereEqualTo("ownedID", auth.uid.toString()).get().addOnSuccessListener{ documents ->
             documents.forEach{
                 val name = it.get(CampaignData.nameFieldName).toString()
                 val description = it.get(CampaignData.descriptionFieldName).toString()
@@ -36,12 +47,18 @@ class CampaignSelectionFragment : Fragment() {
                 campaignList.add(campaignData)
             }
 
-            binding.list.adapter = CampaignListRecyclerViewAdapter(campaignList)
-
+            (binding.list?.adapter as CampaignListRecyclerViewAdapter).updateItemList(campaignList)
         }
-
-        binding.list.adapter = CampaignListRecyclerViewAdapter(campaignList)
-
-        return binding.root
     }
+
+    private fun goToCreateCampaign() {
+        val intent = Intent(activity, CreateCampaignActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getListFromDatabase()
+    }
+
 }
